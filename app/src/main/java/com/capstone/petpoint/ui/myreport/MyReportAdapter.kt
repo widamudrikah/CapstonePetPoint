@@ -25,6 +25,10 @@ class MyReportAdapter(private val onItemClick: (DataItem) -> Unit) : ListAdapter
             binding.tvReportHour.text = report.timeCreated
             binding.tvPetCategoryData.text = report.petCategory
             binding.tvStatusData.text = report.petStatus
+
+            binding.root.setOnClickListener {
+                onItemClick(report)
+            }
         }
     }
 

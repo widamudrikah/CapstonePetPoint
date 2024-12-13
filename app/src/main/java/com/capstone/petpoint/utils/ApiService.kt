@@ -1,5 +1,6 @@
 package com.capstone.petpoint.utils
 
+import com.capstone.petpoint.response.DetailEmergencyUserResponse
 import com.capstone.petpoint.response.ListEmergencyUserResponse
 import com.capstone.petpoint.response.PostEmergencyResponse
 import okhttp3.MultipartBody
@@ -11,6 +12,7 @@ import retrofit2.http.Header
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
+import retrofit2.http.Path
 
 data class RegisterRequest(
     val name_user: String,
@@ -71,4 +73,10 @@ interface ApiService {
     fun getEmergencyUser(
         @Header("Authorization") token: String
     ) : Call<ListEmergencyUserResponse>
+
+    @GET("emergency/reportList/{em_id}")
+    fun getDetailEmergencyUser(
+        @Header("Authorization") token: String,
+        @Path("em_id") id: String
+    ) : Call<DetailEmergencyUserResponse>
 }

@@ -1,5 +1,6 @@
 package com.capstone.petpoint.ui.myreport
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -12,6 +13,7 @@ import com.capstone.petpoint.R
 import com.capstone.petpoint.adapter.EmergencyUserAdapter
 import com.capstone.petpoint.databinding.FragmentMyReportBinding
 import com.capstone.petpoint.response.DataItem
+import com.capstone.petpoint.ui.detail.DetailMyReportActivity
 
 class MyReportFragment : Fragment() {
 
@@ -23,7 +25,6 @@ class MyReportFragment : Fragment() {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-//        return inflater.inflate(R.layout.fragment_my_report, container, false)
         _binding = FragmentMyReportBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -33,7 +34,10 @@ class MyReportFragment : Fragment() {
 
         adapter = MyReportAdapter { report ->
             val emergencyId = report.emId
-            Log.d("MyReport Fragment", "Emergency id: $emergencyId")
+            Log.i("MyReport Fragment", "Emergency id: $emergencyId")
+            val intent = Intent(requireContext(), DetailMyReportActivity::class.java)
+            intent.putExtra("EMERGENCY_ID", emergencyId)
+            startActivity(intent)
         }
 
        binding.rvReportUser.apply {

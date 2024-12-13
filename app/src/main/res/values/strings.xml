@@ -46,4 +46,6 @@
     <string name="reporting">Reporting time</string>
     <string name="_10_11_2024">10/11/2024</string>
     <string name="witing_list">Witing List</string>
+    <string name="detail_report">Detail Report</string>
+    <string name="your_report_has_been_successfully_sent">Your report has been successfully sent</string>
 </resources>
